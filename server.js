@@ -57,7 +57,7 @@ app.get('/:id', (req, res) => {
   if (id !== 'favicon.ico') {
     res.type('html');
     axios
-      .get(`http://localhost:3003/api/hostels/${id}/reservations?start=2018-06-25&end=2018-06-27`)
+      .get(`http://ec2-13-56-196-251.us-west-1.compute.amazonaws.com:3003/api/hostels/${id}/reservations?start=2018-06-25&end=2018-06-27`)
       .then(response => res.send(renderHTML({data: response.data})));
   } else {
     res.status = 404;
@@ -122,7 +122,7 @@ app.get('/api/hostels/:id/info', (req, res) => {
 app.get('/api/hostels/:id/reservations', (req, res) => {
   const { id } = req.params;
   axios
-    .get(`http://localhost:3003/api/hostels/${id}/reservations?start=${req.query.start}&end=${req.query.end}`)
+    .get(`http://ec2-13-56-196-251.us-west-1.compute.amazonaws.com:3003/api/hostels/${id}/reservations?start=${req.query.start}&end=${req.query.end}`)
     .then(response => res.send(response.data))
     .catch(err => res.json({ message: 'Cannot GET /api/hostels/:id/reservations' }));
 });
@@ -146,7 +146,7 @@ app.get('/api/reviews/overview/:id', (req, res) => {
 
 axios
   // .get('https://s3-us-west-1.amazonaws.com/travelinn-booking/booking.js')
-  .get('http://localhost:3003/1/booking.js')
+  .get('http://ec2-13-56-196-251.us-west-1.compute.amazonaws.com:3003/1/booking.js')
   .then((response) => {
     fs.writeFile('./public/booking.js', response.data, (err) => {
       if (err) console.error(err);
