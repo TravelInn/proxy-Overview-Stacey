@@ -12,6 +12,12 @@
     "axios": "^0.18.0",
     "cors": "^2.8.4",
     "express": "^4.16.2",
-    "morgan": "^1.9.0"
+    "jquery": "^3.3.1",
+    "morgan": "^1.9.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-dom-server": "0.0.5",
+    "request": "^2.87.0",
+    "styled-components": "^3.3.3"
   }
 }
